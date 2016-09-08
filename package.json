@@ -1,0 +1,33 @@
+{
+  "name": "react_todo",
+  "version": "1.0.0",
+  "description": "to-do list by react.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CelloCello/react_todo.git"
+  },
+  "keywords": [
+    "to-do"
+  ],
+  "author": "Sero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CelloCello/react_todo/issues"
+  },
+  "homepage": "https://github.com/CelloCello/react_todo#readme",
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "css-loader": "^0.25.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
+  }
+}
