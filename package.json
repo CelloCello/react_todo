@@ -4,7 +4,8 @@
   "description": "to-do list by react.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --config webpack.config.js --progress --colors --watch"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "css-loader": "^0.25.0",
+    "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },
