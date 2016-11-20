@@ -59,9 +59,20 @@ module.exports = {
         // }
       },
       {
-        test: /.\css$/,
-        loader: ['style-loader', 'css-loader']
-      }
+        test: /\.css$/,
+        // loader: ['style-loader', 'css-loader']
+        loader: 'style!css'
+      },
+      {
+        test: /\.(png|jpg|woff|woff2)$/,
+        loader: 'url-loader?limit=8192'
+        // 當圖片大小小於 8k 時使用 base64 URL, 其餘使用直接連接到圖片的 URL
+      },
+      //fonts loader
+      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
     ]
   },
   plugins: [HtmlWebpackPluginConfig]
