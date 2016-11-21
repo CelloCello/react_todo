@@ -32,9 +32,24 @@
 // try to use ES6
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
-  title: 'My Test',
-  filename: 'index.html' 
+  //title: 'My Test',
+  //filename: 'index.html' 
+  template: 'src/index.html'
 });
+
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CleanWebpackPluginConfig = new CleanWebpackPlugin(['build'], {
+  //root: '/full/project/path', // An absolute path for the root.
+  verbose: true,  // Write logs to console.
+  //dry: false, // Use boolean "true" to test/emulate delete. (will not remove files).
+  //            // (Default: "false", remove files)
+  //exclude: ['shared.js']
+})
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPluginConfig = new CopyWebpackPlugin([
+  { from: 'src/assets', to: 'assets' }
+])
 
 module.exports = {
   entry: {
@@ -64,16 +79,26 @@ module.exports = {
         loader: 'style!css'
       },
       {
-        test: /\.(png|jpg|woff|woff2)$/,
-        loader: 'url-loader?limit=8192'
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader?limit=8192&name=images/[name].[ext]'
         // 當圖片大小小於 8k 時使用 base64 URL, 其餘使用直接連接到圖片的 URL
-      },
-      //fonts loader
-      { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
-      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
-      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
+        // name 讓這些檔案可以放到指定的位置並保留原本的名稱
+      },      
+      //{
+      //  test: /\.(png|jpg|woff|woff2)$/,
+      //  loader: 'url-loader?limit=8192'
+      //  // 當圖片大小小於 8k 時使用 base64 URL, 其餘使用直接連接到圖片的 URL
+      //},
+      ////fonts loader
+      //{ test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,   loader: "url?limit=10000&mimetype=application/font-woff" },
+      //{ test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=application/octet-stream" },
+      //{ test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,    loader: "file" },
+      //{ test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,    loader: "url?limit=10000&mimetype=image/svg+xml" }
     ]
   },
-  plugins: [HtmlWebpackPluginConfig]
+  plugins: [
+    HtmlWebpackPluginConfig,
+    CleanWebpackPluginConfig,
+    CopyWebpackPluginConfig
+  ]
 };
