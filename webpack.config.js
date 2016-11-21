@@ -51,6 +51,13 @@ const CopyWebpackPluginConfig = new CopyWebpackPlugin([
   { from: 'src/assets', to: 'assets' }
 ])
 
+var webpack = require('webpack');
+const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
+  compress: {
+    warnings: false
+  }
+});
+
 module.exports = {
   entry: {
       app: './src/index.js',
@@ -99,6 +106,7 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
     CleanWebpackPluginConfig,
-    CopyWebpackPluginConfig
+    CopyWebpackPluginConfig,
+    UglifyJsPluginConfig
   ]
 };
