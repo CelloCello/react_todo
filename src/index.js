@@ -19,7 +19,8 @@ import MyComponent from './components/MyComponent';
 // add app div
 var app_div = document.createElement('div');
 app_div.setAttribute('id', 'app');
+// app_div.style = 'margin: 0px auto;';
 document.body.appendChild(app_div);
 
 // 將 <MyComponent /> 元件插入 id 為 app 的 DOM 元素中
-ReactDOM.render(<MyComponent />, document.getElementById('app'));
+ReactDOM.render(<MyComponent name='ooo'/>, document.getElementById('app'));

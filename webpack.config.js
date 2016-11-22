@@ -91,6 +91,10 @@ module.exports = {
         // 當圖片大小小於 8k 時使用 base64 URL, 其餘使用直接連接到圖片的 URL
         // name 讓這些檔案可以放到指定的位置並保留原本的名稱
       },      
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
       //{
       //  test: /\.(png|jpg|woff|woff2)$/,
       //  loader: 'url-loader?limit=8192'
@@ -107,6 +111,6 @@ module.exports = {
     HtmlWebpackPluginConfig,
     CleanWebpackPluginConfig,
     CopyWebpackPluginConfig,
-    UglifyJsPluginConfig
+    //UglifyJsPluginConfig
   ]
 };
