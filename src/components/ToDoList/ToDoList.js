@@ -2,7 +2,13 @@ import React from 'react';
 import Input from './Input';
 
 class ToDoList extends React.Component {
-
+  render() {
+    return (
+      // <form>
+        <Input />
+      // </form>
+    );
+  }
 }
 
-extends default ToDoList;
+export default ToDoList;
