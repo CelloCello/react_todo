@@ -13,7 +13,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MyComponent from './MyComponent';
+import MyComponent from './components/MyComponent';
+
 
 // add app div
 var app_div = document.createElement('div');

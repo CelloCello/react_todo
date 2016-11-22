@@ -60,7 +60,7 @@ const UglifyJsPluginConfig = new webpack.optimize.UglifyJsPlugin({
 
 module.exports = {
   entry: {
-      app: './src/index.js',
+    app: './src/index.js',
   },
   output: {
     path: `${__dirname}/build`,
