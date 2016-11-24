@@ -22,7 +22,7 @@ class Input extends React.Component {
     if (e.key === 'Enter') {
       // alert(e.target.value);
       // alert(this.refs.taskInput.value);
-      this.props.onAddTask(e.target.value);
+      this.props.addTaskCB(e.target.value);
       e.target.value = '';
     }
   }

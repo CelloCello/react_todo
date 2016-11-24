@@ -7,24 +7,33 @@ class ToDoList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onAddTask = this.onAddTask.bind(this);
+    this.addTaskCB = this.addTaskCB.bind(this);
+    this.delTaskCB = this.delTaskCB.bind(this);
     
     this.state = {
-      tasks: []
+      tasks: {}  // idx, string
     };
+
+    this.serial = 0;
   }
 
   render() {
     return (
       <div className="todo-list">
-        <Input onAddTask={this.onAddTask}/>
-        <TaskList tasks={this.state.tasks}/>
+        <Input addTaskCB={this.addTaskCB} />
+        <TaskList tasks={this.state.tasks} delTaskCB={this.delTaskCB} />
       </div>
     );
   }
 
-  onAddTask(taskText) {
-    this.state.tasks.push(taskText);
+  addTaskCB(taskText) {
+    this.serial++;
+    this.state.tasks[this.serial] = taskText;
+    this.setState({tasks: this.state.tasks});
+  }
+
+  delTaskCB(idx) {
+    delete this.state.tasks[idx];
     this.setState({tasks: this.state.tasks});
   }
 }
