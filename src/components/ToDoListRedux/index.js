@@ -1,6 +1,12 @@
-import ToDoList from './ToDoList';
+import React from 'react';
+import ToDoListContainer from '../../containers/ToDoListContainer';
 
-export default ToDoList;
 
-// 可以寫成
-// export {default} from './ToDoList';
+const ToDoListRedux = () => (
+  <div className="todo-list">
+    <ToDoListContainer />
+  </div>
+);
+
+
+export default ToDoListRedux;

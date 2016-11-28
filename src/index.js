@@ -20,6 +20,7 @@ import ToDoList from './components/ToDoList';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rdcTodo from './reducers/todo';
+import ToDoListRedux from './components/ToDoListRedux';
 
 
 // add app div
@@ -29,14 +30,14 @@ document.body.appendChild(app_div);
 
 // 將 <MyComponent /> 元件插入 id 為 app 的 DOM 元素中
 // ReactDOM.render(<MyComponent name='ooo'/>, document.getElementById('app'));
-ReactDOM.render(<ToDoList />, document.getElementById('app'));
+// ReactDOM.render(<ToDoList />, document.getElementById('app'));
 
 
 // for Redux
 const store = createStore(rdcTodo);
 ReactDOM.render(
   <Provider store={store}>
-    <ToDoList />
+    <ToDoListRedux />
   </Provider>, 
   document.getElementById('app')
 );

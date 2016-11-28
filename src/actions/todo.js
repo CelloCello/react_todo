@@ -8,7 +8,7 @@ const actAddTask = (content) => ({
 
 const actDelTask = (id) => ({
   type: 'DEL_TASK',
-  id    // 等於 id: id
+  id
 });
 
 export { actAddTask, actDelTask };
