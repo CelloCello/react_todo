@@ -1,6 +1,6 @@
 
 function addTask(action) {
-  console.log(action);
+  // console.log(action);
   return {
     id: action.id,
     done: false,
@@ -10,13 +10,13 @@ function addTask(action) {
 
 // 這邊先做成更改旗標而不是刪除
 function delTask(task, action) {
-  console.log(task);
-  console.log(action);
+  // console.log(task);
+  // console.log(action);
   if (task.id != action.id) return task;
   return {
     id: action.id,
     done: true,
-    content: action.content
+    content: task.content
   };
 }
 

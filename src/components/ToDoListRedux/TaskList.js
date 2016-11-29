@@ -10,7 +10,9 @@ const TaskList = ({
     <ul>
       {
         tasks.map(
-          (task, idx) => <Task task={task} key={idx} id={idx} onDelTask={onDelTask} />
+          (task, idx) => {if (!task.done) {
+            return <Task task={task} key={idx} id={idx} onDelTask={onDelTask} />
+          }}
         )
       }
     </ul>        

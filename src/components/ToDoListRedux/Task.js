@@ -21,7 +21,7 @@ class Task extends React.Component {
 
   render() {
     return (
-      <li className="task" style={{textDecoration: this.props.task.done ? 'line-through' : 'none'}}>
+      <li className="task">
         <button className="btn btn-xs btn-danger" onClick={this.onBtnDelClick}>X</button>
         <span className="task-text">{this.props.task.content}</span>
       </li>

@@ -9,8 +9,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onAddTask: (e) => {
-    if (e.key === 'Enter')
+    if (e.key === 'Enter') {
       dispatch(actAddTask(e.target.value));
+      e.target.value = '';
+    }
   },
   onDelTask: (idx) => {
     dispatch(actDelTask(idx));
