@@ -13,6 +13,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './components/App';
 import MyComponent from './components/MyComponent';
 import ToDoList from './components/ToDoList';
 
@@ -40,7 +41,13 @@ document.body.appendChild(app_div);
 const store = createStore(rdcTodo);
 ReactDOM.render(
   <Provider store={store}>
-    <ToDoListRedux />
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={MyComponent} />
+        <Route path="/my" component={MyComponent} />
+        <Route path="/todo" component={ToDoListRedux} />
+      </Route>
+    </Router>
   </Provider>, 
   document.getElementById('app')
 );
