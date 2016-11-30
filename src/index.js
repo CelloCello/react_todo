@@ -22,6 +22,9 @@ import { Provider } from 'react-redux';
 import rdcTodo from './reducers/todo';
 import ToDoListRedux from './components/ToDoListRedux';
 
+// react-router
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+
 
 // add app div
 var app_div = document.createElement('div');
